@@ -12,6 +12,8 @@ get_user_query = "SELECT services FROM user_platforms WHERE acctID = ':acctID'"
 
 update_user_services = "UPDATE user_platforms SET services = ':services' WHERE acctID = ':acctID'"
 
+add_user = "TODO"
+
 
 def update_services(sshuser, sshpass, dbpass, acctID, service):
     with sshtunnel.SSHTunnelForwarder(
@@ -44,8 +46,8 @@ def update_services(sshuser, sshpass, dbpass, acctID, service):
         updateQuery = updateQuery.replace(":acctID", acctID)
         print(updateQuery)
         cursor.execute(updateQuery)
-
         connection.commit()
+
         connection.close()
 
 
